@@ -202,7 +202,8 @@ This example ilustrates how some entities can be managed (CRUD), filtered, sorte
 **Description**: Allows photographers to manage their sessions with clients. Users can register information about the sessions (date, time, location, type of session), client data, and assigned photographers. Notes or comments about each session can also be added.
 
 ## Pending tasks or things that could be extended:
-
+You can extend very easy the implementation of new filters extending from `DynamicExpression<T, TQueryFilter>` (i.e. see `ListDynamicExpression` or `RangeDynamicExpression` implementations)
+A feature that would be nice to have is for example filtering aggregate queries (grouping) and harnessing the existing filtering, sorting and paging functionality
 
 ## DISCLAIMER
 All the source code in this project is 100% my own work, and it is the result of several years of experience in software development. A very important part of this involves not noly coding but reading documentation of all the frameworks and technologies that are part of this project, as well as many hours of effort and dedication that have helped me refine and choose the best programming techniques.
