@@ -92,8 +92,7 @@ namespace Common.Tests.Infrastructure
             return (IDynamicExpression<T> exp) =>
             {
                 var filteredEntities = query.Where(exp.Predicate()).AsQueryable();
-                var filteredEntitiesMockl = filteredEntities.BuildMock();
-                return filteredEntitiesMockl;
+                return filteredEntities.BuildMock();
             };
         }
     }

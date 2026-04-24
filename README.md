@@ -30,7 +30,7 @@ This pattern promotes the separation of concerns, facilitates maintenance and sc
 
 ## THE GOAL: Dynamic Lambda Expressions, CRUD operations and IQueryable sorting/paging
 
-Now, imagine you have to add more than 20 new entities to your application with controller and service CRUD operations, **search by different field names**, sorting and paging data, let's take for example one of them\: **Clients**. To achieve this, whith this architecture, you must only implement:
+Now, imagine you have to add more than 20 new entities to your application with controller and service CRUD operations, **search by different field names**, sorting and paging data, let's take for example one of them\: **Clients**. To achieve this, with this architecture, you must only implement:
 
 **An empty Controller**: GenericControllerBase will implement all CRUD operations (post, put, patch, get, delete, filter (GetAll filtered), sorting and pagination) **for you!**
 ```c#
@@ -147,7 +147,7 @@ You can decide which name prefixes to use (GreaterThan, LessThan, List, Contains
 
 
 ## The Magic
-The main class that generates the magic is `DynamicExpression` in mthod `SetPredicate(TQueryFilter filter)`
+The main class that generates the magic is `DynamicExpression` in method `SetPredicate(TQueryFilter filter)`
 You can have a look at unit tests starting with `Get_ByDynamicFilter...` to se how it works :)
 
 ## Features
@@ -166,18 +166,21 @@ You can have a look at unit tests starting with `Get_ByDynamicFilter...` to se h
 
 5. **Generation of Dynamic Lambda Expressions**:
    - The generation of dynamic Lambda expressions in IQueryable directly from DTOs allows:
-     - Use of special fields (Max, Min, Count, From, To, Contains, List) that automate the generation of simple queries, reducing the estimated development time.
+     - Use of special fields (GreaterThan, LessThan, GreaterThanOrEqual, LessThanOrEqual, Contains, List) that automate the generation of simple queries, reducing the estimated development time.
      - Automation of sorting and pagination of records.
 
-6. **Decouplig Data layer from Model/Domain**:
-   - Using a Base DbContext to manage Entity migrations and IEntityTypeConfiguration for metter EF Code First management
+6. **Decoupling Data layer from Model/Domain**:
+   - Using a Base DbContext to manage Entity migrations and IEntityTypeConfiguration for better EF Code First management
 
-6. **Simple UI**:
+7. **Simple UI**:
    - This project implements Swagger, so you can test all application functionality.
 
 ## Requirements
+**Runtime**
+This project requires **.NET 9** or later.
+
 **SQL Server**
-This software use SQL Server database, so to work properly you need to install and change the ConnectionString from appsettings.json file
+This software uses SQL Server database, so to work properly you need to install SQL Server and update the `ConnectionString` in `appsettings.json`.
 
 **Code Coverage reports**
 In order to generate code coverage reports properly with coverlete tool you need to install reportgenerator separately:
@@ -206,7 +209,7 @@ You can extend very easy the implementation of new filters extending from `Dynam
 A feature that would be nice to have is for example filtering aggregate queries (grouping) and harnessing the existing filtering, sorting and paging functionality
 
 ## DISCLAIMER
-All the source code in this project is 100% my own work, and it is the result of several years of experience in software development. A very important part of this involves not noly coding but reading documentation of all the frameworks and technologies that are part of this project, as well as many hours of effort and dedication that have helped me refine and choose the best programming techniques.
+All the source code in this project is 100% my own work, and it is the result of several years of experience in software development. A very important part of this involves not only coding but reading documentation of all the frameworks and technologies that are part of this project, as well as many hours of effort and dedication that have helped me refine and choose the best programming techniques.
 For any questions regarding this source code, you can ask me or create a Pull Request :).
 
 Thank you and Happy Coding! :)
